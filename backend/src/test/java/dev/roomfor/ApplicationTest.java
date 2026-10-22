@@ -14,6 +14,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ApplicationTest {
     @Autowired MockMvc mvc;
 
+    @Test void environmentEndpointResponds() throws Exception {
+        mvc.perform(get("/api/environment"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name").isNotEmpty());
+    }
+
     @Test void healthEndpointResponds() throws Exception {
         mvc.perform(get("/api/health"))
             .andExpect(status().isOk())

@@ -30,6 +30,7 @@ export default function App() {
   const [page, setPage] = useState<Page>(readPage);
   const [account, setAccount] = useState(savedAccount);
   const [user, setUser] = useState<User | null>(null);
+  const [environment, setEnvironment] = useState<string | null>(null);
   const [connectionError, setConnectionError] = useState("");
   const [revision, setRevision] = useState(0);
   const [booking, setBooking] = useState<{ room: Room; date: string } | null>(
@@ -44,6 +45,13 @@ export default function App() {
   }, []);
   useEffect(() => () => window.clearTimeout(toastTimer.current), []);
   const api = useMemo(() => createApi(ACCOUNTS[account].token), [account]);
+  useEffect(() => {
+    const controller = new AbortController();
+    api<{ name: string }>("/environment", { signal: controller.signal })
+      .then(value => setEnvironment(value.name))
+      .catch(() => {});
+    return () => controller.abort();
+  }, [api]);
   const refresh = useCallback(() => setRevision((value) => value + 1), []);
   useEffect(() => {
     function handleHash() {
@@ -99,6 +107,7 @@ export default function App() {
       <div className="announcement">
         <Asterisk />
         <span>A LITTLE SPACE. A LOT OF POSSIBILITIES.</span>
+        {environment && <span className="environment-badge">{environment}</span>}
         <Asterisk />
       </div>
       <header className="site-header">

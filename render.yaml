@@ -1,0 +1,270 @@
+services:
+  - type: web
+    name: room-for-team-01
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-team-01-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "1팀"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-team-02
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-team-02-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "2팀"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-team-03
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-team-03-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "3팀"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-team-04
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-team-04-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "4팀"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-control
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-control-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "운영"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-standby-01
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-standby-01-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "예비 1"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-standby-02
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-standby-02-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "예비 2"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-standby-03
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-standby-03-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "예비 3"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-standby-04
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-standby-04-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "예비 4"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"
+
+  - type: web
+    name: room-for-validation
+    runtime: docker
+    plan: starter
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    numInstances: 1
+    autoDeployTrigger: off
+    healthCheckPath: /api/health
+    disk:
+      name: room-for-validation-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENVIRONMENT_NAME
+        value: "배포 검증"
+      - key: APP_DATA_DIR
+        value: /var/data/room-for
+      - key: DATABASE_URL
+        value: "jdbc:h2:file:/var/data/room-for/booking;DATABASE_TO_LOWER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
+      - key: DATABASE_PASSWORD
+        generateValue: true
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xms64m -Xmx256m -XX:+ExitOnOutOfMemoryError"

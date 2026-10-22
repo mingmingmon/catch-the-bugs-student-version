@@ -2,11 +2,15 @@ server:
   port: ${PORT:8080}
 spring:
   datasource:
-    url: jdbc:h2:mem:booking;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
-    username: sa
-    password: ""
+    url: '${DATABASE_URL:jdbc:h2:mem:booking;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE}'
+    username: ${DATABASE_USERNAME:sa}
+    password: '${DATABASE_PASSWORD:}'
+    hikari:
+      maximum-pool-size: 5
   sql:
     init:
-      mode: always
+      mode: never
   jackson:
     time-zone: Asia/Seoul
+app:
+  environment-name: ${APP_ENVIRONMENT_NAME:로컬}

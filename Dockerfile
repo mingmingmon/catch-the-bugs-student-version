@@ -15,7 +15,11 @@ RUN mvn -B package -DskipTests
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends gosu && rm -rf /var/lib/apt/lists/* \
+    && useradd --uid 10001 --create-home --shell /bin/sh app
+COPY deploy/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod 755 /usr/local/bin/entrypoint.sh
 COPY --from=build /app/backend/target/room-for-0.0.1-SNAPSHOT.jar app.jar
-USER 10001
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["java", "-jar", "/app/app.jar"]

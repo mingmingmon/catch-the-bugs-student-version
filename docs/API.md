@@ -7,6 +7,7 @@
 | 메서드 | 경로 | 설명 |
 |---|---|---|
 | GET | `/health` | 서버 상태 |
+| GET | `/environment` | 환경 이름 |
 | GET | `/rooms` | 방 목록 |
 | GET | `/me` | 현재 사용자 |
 | GET | `/reservations` | 예약 내역 |

@@ -2441,3 +2441,6 @@ main:focus {
     transition: none !important;
   }
 }
+
+.environment-badge { border-left: 1px solid currentColor; padding-left: 12px; letter-spacing: 0; white-space: nowrap; }
+@media(max-width:600px) { .announcement { gap: 7px; font-size: 7px; letter-spacing: .5px; } .environment-badge { padding-left: 7px; } }
