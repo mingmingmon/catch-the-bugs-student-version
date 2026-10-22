@@ -1,0 +1,9 @@
+/backend/target/
+/.m2/
+/backend/.m2/
+/.idea/
+*.iml
+.env
+/frontend/node_modules/
+/frontend/dist/
+/frontend/*.tsbuildinfo

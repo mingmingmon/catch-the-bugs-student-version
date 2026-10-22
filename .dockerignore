@@ -1,0 +1,11 @@
+.git
+.idea
+target
+backend/target
+.m2
+backend/.m2
+docs
+requests
+frontend/node_modules
+frontend/dist
+frontend/*.tsbuildinfo
