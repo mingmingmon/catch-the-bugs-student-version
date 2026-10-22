@@ -7,7 +7,9 @@
 
 ## 실행 환경
 
-Java 17 이상과 Node.js 22.12 이상이 필요합니다. Maven Wrapper는 `backend/`에 포함되어 있습니다.
+Java 17 이상과 Node.js 22.12 이상이 필요합니다. 설치되어 있지 않다면 [운영체제별 설치 및 로컬 실행 안내](docs/SETUP.md)를 먼저 따라주세요. Maven Wrapper는 `backend/`에 포함되어 있습니다.
+
+Windows PowerShell에서는 아래의 `./mvnw` 대신 `.\mvnw.cmd`를 사용합니다.
 
 ## 로컬 실행
 

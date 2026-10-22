@@ -4,7 +4,7 @@ React + TypeScript + Vite 기반 프론트엔드입니다.
 
 ## 개발
 
-Node.js 22.12 이상과 실행 중인 백엔드가 필요합니다. [백엔드 실행 방법](../backend/README.md)을 참고하세요.
+Node.js 22.12 이상과 실행 중인 백엔드가 필요합니다. Node.js가 설치되어 있지 않다면 [설치 안내](../docs/SETUP.md)를 참고하세요. Windows PowerShell에서는 `npm` 대신 `npm.cmd`를 사용할 수 있습니다. [백엔드 실행 방법](../backend/README.md)을 참고하세요.
 
 ```sh
 npm ci

@@ -1,6 +1,6 @@
 # ROOM FOR API
 
-Java 17 + Spring Boot 기반 백엔드입니다.
+Java 17 + Spring Boot 기반 백엔드입니다. Java가 설치되어 있지 않다면 [설치 안내](../docs/SETUP.md)를 참고하세요. Windows PowerShell에서는 `./mvnw` 대신 `.\mvnw.cmd`를 사용합니다.
 
 ## 실행
 
